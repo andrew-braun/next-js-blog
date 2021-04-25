@@ -1,16 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Bellota+Text:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lexend:wght@100;300;400;500;600;700;800&display=swap");
+
+:root {
+	--color-grey-50: hsl(265, 55%, 96%);
+	--color-grey-100: hsl(265, 19%, 88%);
+	--color-grey-200: hsl(265, 7%, 70%);
+	--color-grey-300: hsl(265, 6%, 66%);
+	--color-grey-400: hsl(265, 4%, 57%);
+	--color-grey-500: hsl(265, 3%, 53%);
+	--color-grey-600: hsl(265, 4%, 42%);
+	--color-grey-700: hsl(265, 4%, 31%);
+	--color-grey-800: hsl(276, 5%, 20%);
+	--color-grey-900: hsl(280, 5%, 13%);
+
+	--color-primary-50: #c8b3ce;
+	--color-primary-100: #a07aaa;
+	--color-primary-200: #884c97;
+	--color-primary-300: #843897;
+	--color-primary-400: #732392;
+	--color-primary-500: #5a097a;
+	--color-primary-600: #480264;
+	--color-primary-700: #3d0264;
+
+	--color-success-100: #a2f0bc;
+	--color-success-500: #12bd4b;
+
+	--color-error-100: #f1acc9;
+	--color-error-500: #a10c4a;
+
+	--size-1: 0.5rem;
+	--size-2: 0.75rem;
+	--size-3: 1rem;
+	--size-4: 1.25rem;
+	--size-5: 1.75rem;
+	--size-6: 2rem;
+	--size-8: 3rem;
+	--size-16: 4rem;
+	--size-20: 5rem;
+	--size-40: 10rem;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: Lexend, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-size: 10px;
+	color: var(--color-grey-100);
+}
+
+body {
+	background-color: var(--color-grey-500);
+	color: var(--color-grey-100);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Bellota Text";
+	font-weight: 700;
+	color: var(--color-primary-50);
+}
+
+h1 {
+	font-size: var(--size-16);
+}
+
+h2 {
+	font-size: var(--size-8);
+}
+
+h3 {
+	font-size: var(--size-6);
+}
+
+p {
+	font-size: var(--size-5);
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-primary-500);
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@media screen and (min-width: 320px) {
+	html {
+		font-size: 8.5px;
+	}
+}
+
+@media screen and (min-width: 640px) {
+	html {
+		font-size: 9.25px;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	html {
+		font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	html {
+		font-size: 11px;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	html {
+		font-size: 12px;
+	}
 }

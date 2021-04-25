@@ -1,0 +1,23 @@
+.mainHeader {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 3rem;
+}
+
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	font-size: var(--size-8);
+}
+
+.navList {
+	list-style: none;
+	display: flex;
+}
+
+.navItem {
+	padding: 1rem;
+	font-size: var(--size-5);
+}
