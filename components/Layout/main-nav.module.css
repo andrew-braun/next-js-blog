@@ -2,14 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 0 3rem;
-}
-
-.logo {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1rem;
-	font-size: var(--size-8);
+	background: var(--color-grey-700);
 }
 
 .navList {

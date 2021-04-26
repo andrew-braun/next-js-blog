@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	font-family: "Poiret One";
+	font-size: var(--size-16);
+}
+
+.logo:hover {
+	color: var(--color-grey-100);
+}
