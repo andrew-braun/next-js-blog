@@ -1,0 +1,41 @@
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin: 1rem;
+	background: var(--color-primary-500);
+	border-radius: 0.2rem;
+	transition: opacity 0.2s ease-in-out;
+}
+
+.card:hover {
+	opacity: 0.7;
+}
+
+.cardLink {
+	width: 100%;
+}
+
+.cardLink:hover {
+	color: inherit;
+}
+
+.cardImage img {
+	object-fit: fill;
+	border-radius: 0 0.2rem 0 0.2rem;
+}
+
+.cardInfo {
+	padding: 1rem;
+}
+
+.cardHeader {
+	margin: 1rem 0 0.5rem 0;
+	font-size: var(--size-8);
+}
+
+.cardDate {
+	font-size: var(--size-4);
+}
