@@ -11,7 +11,7 @@ function FeaturedPosts(props) {
 
 		const featuredPostList = posts
 			? posts.map((post) => {
-					return <Card post={post} />
+					return <Card post={post} key={post.id} />
 			  })
 			: null
 
