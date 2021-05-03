@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "path"
+import matter from "gray-matter"
 
 const postsDirectory = path.join(process.cwd(), "content", "posts")
 
@@ -15,7 +16,7 @@ const imageExtensions = [
 	".svg",
 ]
 
-function getPostData(folderName, fileName) {
+export function getFileData(folderName, fileName) {
 	const filePath = path.join(
 		process.cwd(),
 		"content",
@@ -23,6 +24,7 @@ function getPostData(folderName, fileName) {
 		folderName,
 		fileName
 	)
+
 	const fileContent = fs.readFileSync(filePath, "utf-8")
 
 	return fileContent
@@ -33,26 +35,28 @@ function parsePostFolder(folderName) {
 	const folderContent = fs.readdirSync(folderPath)
 
 	const postData = {}
+
 	folderContent.forEach((file, index) => {
-		const fileContent = getPostData(folderName, file)
-		if (path.extname(file) === ".md") {
-			postData.markdown = fileContent
+		const fileContent = getFileData(folderName, file)
+		if ([".md", ".mdx"].includes(path.extname(file))) {
+			const { data, content } = matter(fileContent)
+			postData.data = data
+			postData.content = content
 		} else if (imageExtensions.includes(path.extname(file))) {
 			postData[`image${index}`] = file
 		}
 	})
+
 	return postData
 }
 
 export function getAllPosts() {
 	const postFolders = fs.readdirSync(postsDirectory)
 
-	const allPosts = []
-
-	postFolders.forEach((folder, index) => {
-		allPosts.push(parsePostFolder(folder))
+	const allPosts = postFolders.map((folder, index) => {
+		return parsePostFolder(folder)
 	})
 
 	console.log(allPosts)
-	// console.log(postFolders)
+	return allPosts
 }

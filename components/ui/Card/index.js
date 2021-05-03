@@ -3,7 +3,8 @@ import Image from "next/image"
 import styles from "./card.module.css"
 
 function Card(props) {
-	const { title, image, excerpt, date, slug } = props.post
+	const { title, image, excerpt, date, slug } = props.post.data
+	console.log(image)
 
 	const formattedDate = new Date(date).toLocaleDateString("en-US", {
 		day: "numeric",

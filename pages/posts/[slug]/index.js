@@ -12,13 +12,3 @@ function SinglePostPage() {
 }
 
 export default SinglePostPage
-
-// export async function getStaticPaths() {
-// 	return {
-// 		paths: [
-// 			{ params: { slug: "next-js-whats-next" } },
-// 			{ params: { slug: "file-based-routing-in-next" } },
-// 		],
-// 		fallback: false,
-// 	}
-// }

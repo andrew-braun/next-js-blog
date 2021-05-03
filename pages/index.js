@@ -2,16 +2,24 @@ import { Fragment } from "react"
 import Hero from "../components/homepage/Hero/index"
 import FeaturedPosts from "../components/homepage/FeaturedPosts/index"
 
-import DUMMY_DATA from "../DUMMY_DATA"
-function HomePage() {
-	const DUMMY_POSTS = DUMMY_DATA
+function HomePage(props) {
+	const posts = props.posts.data
 
 	return (
 		<Fragment>
 			<Hero />
-			<FeaturedPosts posts={DUMMY_POSTS} />
+			<FeaturedPosts posts={posts} />
 		</Fragment>
 	)
+}
+
+export async function getStaticProps() {
+	const response = await fetch("http://localhost:3000/api/posts/posts")
+	const allPosts = await response.json()
+
+	return {
+		props: { posts: allPosts },
+	}
 }
 
 export default HomePage
