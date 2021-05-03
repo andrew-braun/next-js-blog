@@ -1,9 +1,10 @@
 import { Fragment } from "react"
 import Hero from "../components/homepage/Hero/index"
 import FeaturedPosts from "../components/homepage/FeaturedPosts/index"
+import { getFeaturedPosts } from "../helpers/posts-util"
 
 function HomePage(props) {
-	const posts = props.posts.data
+	const posts = props.posts
 
 	return (
 		<Fragment>
@@ -14,9 +15,13 @@ function HomePage(props) {
 }
 
 export async function getStaticProps() {
-	const response = await fetch("http://localhost:3000/api/posts/posts")
-	const allPosts = await response.json()
+	// const response = await fetch(
+	// 	"http://localhost:3000/api/posts/posts?featured=true"
+	// )
+	// const allPosts = await response.json()
 
+	const allPosts = getFeaturedPosts()
+	console.log(allPosts)
 	return {
 		props: { posts: allPosts },
 	}

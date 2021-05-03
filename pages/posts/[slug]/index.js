@@ -3,7 +3,8 @@ import PostContent from "../../../components/posts/post-detail/post-content/inde
 
 import DUMMY_DATA from "../../../DUMMY_DATA"
 
-function SinglePostPage() {
+function SinglePostPage(props) {
+	console.log(props)
 	return (
 		<Fragment>
 			<PostContent content={DUMMY_DATA} />

@@ -40,10 +40,15 @@ function parsePostFolder(folderName) {
 		const fileContent = getFileData(folderName, file)
 		if ([".md", ".mdx"].includes(path.extname(file))) {
 			const { data, content } = matter(fileContent)
+
+			const postSlug = file.replace(/\.md$/, "")
+
 			postData.data = data
+			postData.data.slug = postSlug
 			postData.content = content
 		} else if (imageExtensions.includes(path.extname(file))) {
-			postData[`image${index}`] = file
+			// postData[`image${index}`] = file
+			postData.image = file
 		}
 	})
 
@@ -57,6 +62,25 @@ export function getAllPosts() {
 		return parsePostFolder(folder)
 	})
 
-	console.log(allPosts)
-	return allPosts
+	const sortedPosts = allPosts.sort((postA, postB) =>
+		postA.date > postB.date ? -1 : 1
+	)
+
+	// console.log(allPosts)
+	return sortedPosts
+}
+
+export function getFeaturedPosts() {
+	const postFolders = fs.readdirSync(postsDirectory)
+
+	const allPosts = postFolders.map((folder, index) => {
+		return parsePostFolder(folder)
+	})
+
+	const featuredPosts = allPosts.filter((post) => post.data.isFeatured)
+	// console.log(featuredPosts)
+	const sortedPosts = featuredPosts.sort((postA, postB) =>
+		postA.date > postB.date ? -1 : 1
+	)
+	return sortedPosts
 }
