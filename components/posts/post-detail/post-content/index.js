@@ -2,10 +2,12 @@ import ReactMarkdown from "react-markdown"
 import PostHeader from "../post-header/index"
 import styles from "./post-content.module.css"
 
-import DUMMY_DATA from "../../../../DUMMY_DATA"
+// import DUMMY_DATA from "../../../../DUMMY_DATA"
 
 function PostContent(props) {
-	const { title, content, image, slug } = props.content[0]
+	const post = props.content
+	const { title, image, slug } = post.data
+	const content = post.content
 
 	return (
 		<article className={styles.postContent}>

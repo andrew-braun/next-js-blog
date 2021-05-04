@@ -24,6 +24,7 @@ export async function getStaticProps() {
 	console.log(allPosts)
 	return {
 		props: { posts: allPosts },
+		revalidate: 1800,
 	}
 }
 

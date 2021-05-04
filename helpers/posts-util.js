@@ -30,8 +30,17 @@ export function getFileData(folderName, fileName) {
 	return fileContent
 }
 
+export function getAllPostFolderPaths() {
+	return fs.readdirSync(postsDirectory)
+}
+
+function getPostFolderPath(folderName) {
+	return path.join(process.cwd(), "content", "posts", folderName)
+}
+
 function parsePostFolder(folderName) {
-	const folderPath = path.join(process.cwd(), "content", "posts", folderName)
+	const folderPath = getPostFolderPath(folderName)
+
 	const folderContent = fs.readdirSync(folderPath)
 
 	const postData = {}
@@ -56,7 +65,7 @@ function parsePostFolder(folderName) {
 }
 
 export function getAllPosts() {
-	const postFolders = fs.readdirSync(postsDirectory)
+	const postFolders = getAllPostFolderPaths()
 
 	const allPosts = postFolders.map((folder, index) => {
 		return parsePostFolder(folder)
@@ -71,7 +80,7 @@ export function getAllPosts() {
 }
 
 export function getFeaturedPosts() {
-	const postFolders = fs.readdirSync(postsDirectory)
+	const postFolders = getAllPostFolderPaths()
 
 	const allPosts = postFolders.map((folder, index) => {
 		return parsePostFolder(folder)
@@ -83,4 +92,13 @@ export function getFeaturedPosts() {
 		postA.date > postB.date ? -1 : 1
 	)
 	return sortedPosts
+}
+
+export function getSinglePost(postSlug) {
+	// const filePath = path.join(process.cwd(), "content", "posts", postSlug)
+	// console.log(filePath)
+
+	const singlePost = parsePostFolder(postSlug)
+
+	return singlePost
 }
