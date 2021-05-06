@@ -5,8 +5,6 @@ import Image from "next/image"
 import PostHeader from "../post-header/index"
 import styles from "./post-content.module.css"
 
-// import DUMMY_DATA from "../../../../DUMMY_DATA"
-
 function PostContent(props) {
 	const post = props.content
 	const { title, image, slug } = post.data

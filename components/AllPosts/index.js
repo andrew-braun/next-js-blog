@@ -4,24 +4,17 @@ import Card from "../../components/ui/Card"
 import styles from "./all-posts.module.css"
 
 function AllPosts(props) {
-	const [posts, setPosts] = useState([])
+	const { posts } = props
 
-	useEffect(() => {
-		const posts = props.posts
-
-		const postList = posts
-			? posts.map((post) => {
-					return <Card post={post} key={post.slug} />
-			  })
-			: null
-
-		const postGrid = postList
-		setPosts(postList)
-	}, [])
+	const postList = posts
+		? posts.map((post) => {
+				return <Card post={post} key={post.slug} />
+		  })
+		: null
 
 	return (
 		<section className={styles.allPosts}>
-			<Grid content={posts} />
+			<Grid content={postList} />
 		</section>
 	)
 }
