@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 import Grid from "../../components/ui/Grid"
 import Card from "../../components/ui/Card"
 import styles from "./all-posts.module.css"

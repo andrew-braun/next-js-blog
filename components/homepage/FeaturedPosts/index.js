@@ -4,20 +4,13 @@ import Card from "../../ui/Card/index"
 import styles from "./featured-posts.module.css"
 
 function FeaturedPosts(props) {
-	const [featuredPosts, setFeaturedPosts] = useState([])
+	const posts = props.posts
 
-	useEffect(() => {
-		const posts = props.posts
-
-		const featuredPostList = posts
-			? posts.map((post) => {
-					return <Card post={post} key={post.id} />
-			  })
-			: null
-
-		const featuredPostGrid = featuredPostList
-		setFeaturedPosts(featuredPostGrid)
-	}, [])
+	const featuredPosts = posts
+		? posts.map((post) => {
+				return <Card post={post} key={post.id} />
+		  })
+		: null
 
 	return (
 		<section className={styles.featuredPosts}>
