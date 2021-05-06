@@ -14,7 +14,7 @@ function Hero() {
 			</div>
 			<h1 className={styles.heroTitle}>Hey there! I'm Andrew.</h1>
 			<p className={styles.heroSubTitle}>
-				I write about web development, code, and nerd things. Join me!{" "}
+				I write about web development, code, and nerd things. Join me!
 			</p>
 		</section>
 	)

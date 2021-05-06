@@ -1,5 +1,4 @@
 import Link from "next/link"
-
 import Logo from "./logo"
 import styles from "./main-nav.module.css"
 
