@@ -7,7 +7,7 @@ function AllPosts(props) {
 
 	const postList = posts
 		? posts.map((post) => {
-				return <Card post={post} key={post.slug} />
+				return <Card post={post} key={`${post.data.title}-${post.data.date}`} />
 		  })
 		: null
 

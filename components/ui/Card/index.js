@@ -3,7 +3,7 @@ import Image from "next/image"
 import styles from "./card.module.css"
 
 function Card(props) {
-	const { title, image, excerpt, date, slug } = props.post.data
+	const { title, image, excerpt, date, slug, key } = props.post.data
 	console.log(image)
 
 	const formattedDate = new Date(date).toLocaleDateString("en-US", {
@@ -13,7 +13,7 @@ function Card(props) {
 	})
 
 	return (
-		<article className={styles.card}>
+		<article className={styles.card} key={slug}>
 			<Link href={`/posts/${slug}`}>
 				<a className={styles.cardLink}>
 					<div className={styles.cardImage}>

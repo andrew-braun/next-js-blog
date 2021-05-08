@@ -21,7 +21,7 @@ export async function getStaticProps() {
 	// const allPosts = await response.json()
 
 	const allPosts = getFeaturedPosts()
-	console.log(allPosts)
+	// console.log(allPosts)
 	return {
 		props: { posts: allPosts },
 		revalidate: 1800,
