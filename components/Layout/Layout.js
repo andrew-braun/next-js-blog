@@ -6,6 +6,7 @@ function Layout(props) {
 		<Fragment>
 			<MainNav />
 			<main>{props.children}</main>
+			<div id="notifications"></div>
 		</Fragment>
 	)
 }
