@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb"
+
 import { validateEmail, validateText } from "../../../helpers/validation"
 
 async function handler(req, res) {

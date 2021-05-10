@@ -1,4 +1,5 @@
 import { Fragment } from "react"
+import Head from "next/head"
 import AllPosts from "../../components/AllPosts/index"
 import styles from "./posts.module.css"
 
@@ -10,6 +11,13 @@ function PostsPage(props) {
 
 	return (
 		<Fragment>
+			<Head>
+				<title>All Posts</title>
+				<meta
+					name="description"
+					contents="A list of all tech, coding, and Next.js-related posts"
+				/>
+			</Head>
 			<h1 className={styles.allPostsTitle}>All Posts</h1>
 			<div className={styles.allPostsGrid}>
 				<AllPosts posts={posts} />

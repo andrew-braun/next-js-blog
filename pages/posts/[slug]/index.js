@@ -1,4 +1,5 @@
 import { Fragment } from "react"
+import Head from "next/head"
 import PostContent from "../../../components/posts/post-detail/post-content/index"
 import {
 	getSinglePost,
@@ -10,6 +11,10 @@ function SinglePostPage(props) {
 
 	return (
 		<Fragment>
+			<Head>
+				<title>{props.post.data.title}</title>
+				<meta name="description=" content={props.post.data.excerpt} />
+			</Head>
 			<PostContent content={post} />
 		</Fragment>
 	)
