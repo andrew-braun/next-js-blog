@@ -80,7 +80,7 @@ function ContactForm() {
 		notification = {
 			status: "error",
 			title: "Error",
-			message: requestError,
+			message: "Request error!",
 		}
 	}
 

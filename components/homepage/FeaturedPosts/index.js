@@ -7,7 +7,7 @@ function FeaturedPosts(props) {
 
 	const featuredPosts = posts
 		? posts.map((post) => {
-				return <Card post={post} key={post.slug} />
+				return <Card post={post} key={`${post.title}-${post.date}`} />
 		  })
 		: null
 

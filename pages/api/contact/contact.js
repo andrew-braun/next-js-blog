@@ -19,8 +19,15 @@ async function handler(req, res) {
 		const newMessage = { email, name, message }
 
 		let client
-		const uri =
-			"mongodb+srv://andrewbraun:next-blog-restricted-ip@cluster0.mf3oe.mongodb.net/Next-Blog?retryWrites=true&w=majority"
+
+		const env = process.env
+		const mongodbUsername = env.mongodb_username,
+			mongodbPassword = env.mongodb_password,
+			mongodbClustername = env.mongodb_clustername,
+			mongodbDatabase = env.mongodb_database
+		console.log(mongodbUsername)
+
+		const uri = `mongodb+srv://${mongodbUsername}:${mongodbPassword}@${mongodbClustername}.mf3oe.mongodb.net/${mongodbDatabase}?retryWrites=true&w=majority`
 
 		try {
 			client = await MongoClient.connect(uri, {
