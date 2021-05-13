@@ -5,7 +5,7 @@ module.exports = (phase) => {
 		return {
 			env: {
 				mongodb_username: "andrewbraun",
-				mongodb_password: "next-blog-open",
+
 				mongodb_clustername: "cluster0",
 				mongodb_database: "Next-Blog-dev",
 			},
