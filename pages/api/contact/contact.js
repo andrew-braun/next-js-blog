@@ -21,7 +21,7 @@ async function handler(req, res) {
 		let client
 
 		const env = process.env
-		const mongodbUsername = env.mongodb_username,
+		const mongodbUsername = process.env.mongodb_username,
 			mongodbPassword = env.mongodb_password,
 			mongodbClustername = env.mongodb_clustername,
 			mongodbDatabase = env.mongodb_database
