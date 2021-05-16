@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 		res.status(500).json({ message: "Could not connect to database" })
 	}
 
-	const db = await client.db()
+	const db = client.db()
 
 	const existingUser = await db.collection("users").findOne({ email: email })
 	if (existingUser) {
@@ -32,12 +32,13 @@ export default async function handler(req, res) {
 
 	const hashedPassword = await hashPassword(password)
 
-	const result = db.collection("users").insertOne({
+	const result = await db.collection("users").insertOne({
 		email: email,
 		password: hashedPassword,
 	})
 
-	res.status(201).json({ message: "Successfully created user!" })
-
 	client.close()
+
+	res.status(201).json({ message: "Successfully created user!" })
+	return
 }
