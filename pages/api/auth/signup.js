@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 		res.status(500).json({ message: "Could not connect to database" })
 	}
 
-	const db = client.db()
+	const db = await client.db()
 
 	const existingUser = await db.collection("users").findOne({ email: email })
 	if (existingUser) {
