@@ -5,24 +5,24 @@ import styles from "./user-profile.module.css"
 
 function UserProfile() {
 	// Redirect away if NOT auth
-	const [isLoading, setIsLoading] = useState(true)
-	const [loadedSession, setLoadedSession] = useState()
+	// const [isLoading, setIsLoading] = useState(true)
+	// const [loadedSession, setLoadedSession] = useState()
 
-	useEffect(() => {
-		getSession().then((session) => {
-			if (!session) {
-				window.location.href = "/auth"
-			}
-			setLoadedSession(session)
-			setIsLoading(false)
-		})
-	}, [])
+	// useEffect(() => {
+	// 	getSession().then((session) => {
+	// 		if (!session) {
+	// 			window.location.href = "/auth"
+	// 		}
+	// 		setLoadedSession(session)
+	// 		setIsLoading(false)
+	// 	})
+	// }, [])
 
 	// const [session, loading] = useSession()
 
-	if (isLoading) {
-		return <p className={styles.profile}>Loading...</p>
-	}
+	// if (isLoading) {
+	// 	return <p className={styles.profile}>Loading...</p>
+	// }
 
 	return (
 		<section className={styles.profile}>
